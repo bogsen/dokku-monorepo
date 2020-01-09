@@ -2,8 +2,7 @@
 
 Dokku plugin for monorepo setups.
 
-This plugin is a fork of the [dokku-monorepo](https://github.com/sebastian/dokku-monorepo) plugin at https://github.com/sebastian/dokku-monorepo.
-
+This plugin is a fork of the [dokku-monorepo](https://github.com/sebastian/dokku-monorepo) plugin.
 This plugin differs from the original in one significant way.
 Whereas the original assumes that each sub-directory can be independently deployed,
 this version caters to a setup where each directory:
