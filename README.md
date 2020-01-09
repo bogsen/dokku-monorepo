@@ -45,6 +45,8 @@ the `example-first` and `example-staging-first` applications would be deployed f
 
 Each of these app folders should contain a `Dockerfile` that will be copied to the root folder
 by this plugin at the time of the deployment.
+Optionally they can also contain a `.dockerignore` file named `Dockerfile.dockerignore`.
+If it exists it will also be copied to the top-level directory.
 
 When you push the code to an application's remote, the folder gets detected for you:
 
@@ -61,3 +63,10 @@ Total 253 (delta 117), reused 233 (delta 109)
 ```
 
 It's that easy!
+
+### Local usage
+
+If you want to experiment with building the Dockerfile locally as well, then
+you can copy the `build-local.sh` to the root folder of your application.
+It can be invoked as `./build-local.sh first` to build the example application
+used above, located at `myapp1`.

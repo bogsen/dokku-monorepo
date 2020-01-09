@@ -14,10 +14,15 @@ while IFS="=" read -u 10 -a line || [[ -n $line ]]; do
 
   app_subdir="${line[1]}"
   dockerfile_path="${TMP_WORK_DIR}/${app_subdir}/Dockerfile"
+  dockerignorefile_path="${TMP_WORK_DIR}/${app_subdir}/Dockerfile.dockerignore"
 
   [[ ! -e $dockerfile_path ]] && \
     dokku_log_info2 "The application $APP is missing a Dockerfile at $app_subdir/Dockerfile" && \
     exit 1
+
+  [[ -e $dockerfile_path ]] && \
+    dokku_log_info2 "Using .dockerignore file at $app_subdir/Dockerfile.dockerignore" && \
+    cp $dockerignorefile_path .dockerignore
 
   dokku_log_info2 "Building using Dockerfile from ./$app_subdir"
   cp $dockerfile_path Dockerfile
