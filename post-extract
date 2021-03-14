@@ -20,7 +20,7 @@ while IFS="=" read -u 10 -a line || [[ -n $line ]]; do
     dokku_log_info2 "The application $APP is missing a Dockerfile at $app_subdir/Dockerfile" && \
     exit 1
 
-  [[ -e $dockerfile_path ]] && \
+  [[ -e $dockerignorefile_path ]] && \
     dokku_log_info2 "Using .dockerignore file at $app_subdir/Dockerfile.dockerignore" && \
     cp $dockerignorefile_path .dockerignore
 
